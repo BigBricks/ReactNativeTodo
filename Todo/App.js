@@ -3,6 +3,10 @@ import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import { white } from "ansi-colors";
 
 export default class App extends React.Component {
+  state = {
+    todo: [],
+    text: ""
+  };
   render() {
     return (
       <View style={styles.container}>
