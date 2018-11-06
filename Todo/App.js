@@ -11,6 +11,11 @@ export default class App extends React.Component {
   handleTextInput = text => {
     this.setState({ text: text })
   }
+  addTodo() {
+    const { text } = this.state;
+    this.state.todo.push(text);
+    this.setState({ text: "" })
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -18,13 +23,14 @@ export default class App extends React.Component {
           <FlatList
             data={this.state.todo}
             renderItem={({ item, index }) =>
-              <View style={styles1.container}>
-                <Text style={{
-                  color: 'pink'
-                }}>
-                  {item.text}
-                </Text>
-                {/* <Button title="X" onPress={() => this.deleteTask(index)} /> */}
+              <View>
+                <View style={styles1.container}>
+                  <Text style={{
+                    color: 'pink'
+                  }}>
+                    {item.text}
+                  </Text>
+                </View>
               </View>}
             keyExtractor={(item, index) => index.toString()}
           />
