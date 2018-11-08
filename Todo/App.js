@@ -8,8 +8,8 @@ export default class App extends React.Component {
     todo: [{ text: 'hi11111111111111' }, { text: 'hi11111111111111' }],
     text: ""
   };
-  handleTextInput = text => {
-    this.setState({ text: text })
+  handleTextInput = e => {
+    this.setState({ [e.target.name]: e.target.value });
   }
   addTodo() {
     const { text } = this.state;
@@ -20,20 +20,22 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <ImageBackground source={require('./assets/morocco.jpg')} style={{ width: '100%', height: '100%' }} >
-          <FlatList
-            data={this.state.todo}
-            renderItem={({ item, index }) =>
-              <View>
-                <View style={styles1.container}>
-                  <Text style={{
-                    color: 'pink'
-                  }}>
-                    {item.text}
-                  </Text>
-                </View>
-              </View>}
-            keyExtractor={(item, index) => index.toString()}
-          />
+          <View style={styles1.container}>
+            <FlatList
+              data={this.state.todo}
+              renderItem={({ item, index }) =>
+                <View>
+                  <View>
+                    <Text style={{
+                      color: 'pink'
+                    }}>
+                      {item.text}
+                    </Text>
+                  </View>
+                </View>}
+              keyExtractor={(item, index) => index.toString()}
+            />
+          </View>
         </ImageBackground>
         <Text>BOB</Text>
       </View >
