@@ -38,7 +38,7 @@ export default class App extends React.Component {
                   <View>
                     <Text
                       style={{
-                        color: "pink"
+                        color: "red"
                       }}
                     >
                       {item.text}
